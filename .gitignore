@@ -1,3 +1,4 @@
+.vscode/
 Library/
 Logs/
 Packages/
@@ -5,8 +6,6 @@ Temp/
 UserSettings/
 ProjectSettings/
 Assets/Animations/
-Assets/Scenes/
-.vscode/
+*.unity
 *.meta
 *.psd
-*.unity

@@ -3,4 +3,9 @@ Logs/
 Packages/
 Temp/
 UserSettings/
+ProjectSettings/
+Assets/Animations/
+Assets/Scenes/
 .vscode/
+*.meta
+*.psd

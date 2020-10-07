@@ -13,7 +13,7 @@ public class RoomGenerator : MonoBehaviour
 
     void Start()
     {
-        GenerateRoom(-10, -10, 15, 7, 1000);
+        GenerateRoom(-10, -10, 15, 7, 2);
     }
 
     private void GenerateRoom(int startX, int startY, int sizeX, int sizeY, int doorCount)
@@ -48,30 +48,42 @@ public class RoomGenerator : MonoBehaviour
             }
             startX += 3;
         }
-        List<(float, float)> badDoorPositions = new List<(float, float)>();
+        var badDoorPositions = new Dictionary<string, List<(float, float)>>
+        {
+            {"top",    new List<(float, float)>()},
+            {"right",  new List<(float, float)>()},
+            {"bottom", new List<(float, float)>()},
+            {"left",   new List<(float, float)>()}
+        };
         for (int i = 0; i < doorCount; i++)
-            CreateRoomDoor(ref Walls, ref badDoorPositions, "top");
+            CreateRoomDoor(ref Walls, ref badDoorPositions);
     }
 
-    private void CreateRoomDoor(ref Dictionary<string, List<GameObject>> Walls, ref List<(float, float)> badDoorPositions, string doorSide = null)
+    private void CreateRoomDoor(ref Dictionary<string, List<GameObject>> Walls, ref Dictionary<string, List<(float, float)>> badDoorPositions, string doorSide=null)
     {
         if (doorSide == null)
             doorSide = Walls.ElementAt(rnd.Next(0, Walls.Count)).Key;
         int RoomWallIndex = rnd.Next(Walls[doorSide].Count);
         GameObject RoomWall = Walls[doorSide][RoomWallIndex];
-        AddBadDoorPositions(ref RoomWall, ref badDoorPositions);
-        if (badDoorPositions.Any(i => i == (RoomWall.transform.position.x, RoomWall.transform.position.y)))
+        AddBadDoorPositions(ref RoomWall, ref badDoorPositions, doorSide);
+        if (badDoorPositions[doorSide].Any(i => i == (RoomWall.transform.position.x, RoomWall.transform.position.y)))
             return;
         Walls[doorSide].RemoveAt(RoomWallIndex);
         Instantiate(Door, new Vector3(RoomWall.transform.position.x, RoomWall.transform.position.y, 0), Quaternion.identity);
         Destroy(RoomWall);
     }
 
-    private void AddBadDoorPositions(ref GameObject RoomWall, ref List<(float, float)> badDoorPositions)
+    private void AddBadDoorPositions(ref GameObject RoomWall, ref Dictionary<string, List<(float, float)>> badDoorPositions, string doorSide)
     {
-        badDoorPositions.Add((RoomWall.transform.position.x - 3, RoomWall.transform.position.y));
-        badDoorPositions.Add((RoomWall.transform.position.x + 3, RoomWall.transform.position.y));
-        badDoorPositions.Add((RoomWall.transform.position.x, RoomWall.transform.position.y - 3));
-        badDoorPositions.Add((RoomWall.transform.position.x, RoomWall.transform.position.y + 3));
+        if (doorSide == "top" || doorSide == "bottom")
+        {
+            badDoorPositions[doorSide].Add((RoomWall.transform.position.x - 3, RoomWall.transform.position.y));
+            badDoorPositions[doorSide].Add((RoomWall.transform.position.x + 3, RoomWall.transform.position.y));
+        }
+        else if (doorSide == "left" || doorSide == "right")
+        {
+            badDoorPositions[doorSide].Add((RoomWall.transform.position.x, RoomWall.transform.position.y - 3));
+            badDoorPositions[doorSide].Add((RoomWall.transform.position.x, RoomWall.transform.position.y + 3));
+        }
     }
 }

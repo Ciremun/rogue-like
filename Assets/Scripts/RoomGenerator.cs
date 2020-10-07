@@ -13,8 +13,7 @@ public class RoomGenerator : MonoBehaviour
 
     void Start()
     {
-        GenerateRoom(-10, -10, 15, 7, 2);
-        GenerateRoom(20, -10, 30, 30, 10);
+        GenerateRoom(-10, -10, 15, 7, 1000);
     }
 
     private void GenerateRoom(int startX, int startY, int sizeX, int sizeY, int doorCount)
@@ -25,37 +24,45 @@ public class RoomGenerator : MonoBehaviour
         Instantiate(Wall, new Vector3(topX, topY, 0), Quaternion.identity);             // top right corner
         Instantiate(Wall, new Vector3(startX - 3, startY - 3, 0), Quaternion.identity); // bottom left corner
         Instantiate(Wall, new Vector3(topX, startY - 3, 0), Quaternion.identity);       // bottom right corner
-        var Walls = new List<GameObject>();
+        var Walls = new Dictionary<string, List<GameObject>>
+        {
+            {"top",    new List<GameObject>()},
+            {"right",  new List<GameObject>()},
+            {"bottom", new List<GameObject>()},
+            {"left",   new List<GameObject>()}
+        };
         for (int x = 0;  x < sizeX; x++)
         {
             int nextY = startY;
-            Walls.Add(Instantiate(Wall, new Vector3(startX, nextY - 3, 0), Quaternion.identity)); // bottom wall
+            Walls["bottom"].Add(Instantiate(Wall, new Vector3(startX, nextY - 3, 0), Quaternion.identity));
             for (int y = 0; y < sizeY; y++)
             {
                 if (x == 0)
-                    Walls.Add(Instantiate(Wall, new Vector3(startX - 3, nextY, 0), Quaternion.identity)); // left wall
+                    Walls["left"].Add(Instantiate(Wall, new Vector3(startX - 3, nextY, 0), Quaternion.identity));
                 else if (x == sizeX - 1)
-                    Walls.Add(Instantiate(Wall, new Vector3(startX + 3, nextY, 0), Quaternion.identity)); // right wall
-                Instantiate(Floor, new Vector3(startX, nextY, 0), Quaternion.identity); // floor
+                    Walls["right"].Add(Instantiate(Wall, new Vector3(startX + 3, nextY, 0), Quaternion.identity));
+                Instantiate(Floor, new Vector3(startX, nextY, 0), Quaternion.identity);
                 if (y == sizeY - 1)
-                    Walls.Add(Instantiate(Wall, new Vector3(startX, nextY + 3, 0), Quaternion.identity)); // top wall
+                    Walls["top"].Add(Instantiate(Wall, new Vector3(startX, nextY + 3, 0), Quaternion.identity));
                 nextY += 3;
             }
             startX += 3;
         }
-        List<(float, float)> badDoorPositions = new List<(float, float)>{};
+        List<(float, float)> badDoorPositions = new List<(float, float)>();
         for (int i = 0; i < doorCount; i++)
-            CreateRoomDoor(ref Walls, ref badDoorPositions);
+            CreateRoomDoor(ref Walls, ref badDoorPositions, "top");
     }
 
-    private void CreateRoomDoor(ref List<GameObject> Walls, ref List<(float, float)> badDoorPositions)
+    private void CreateRoomDoor(ref Dictionary<string, List<GameObject>> Walls, ref List<(float, float)> badDoorPositions, string doorSide = null)
     {
-        int RoomWallIndex = rnd.Next(Walls.Count);
-        GameObject RoomWall = Walls[RoomWallIndex];
+        if (doorSide == null)
+            doorSide = Walls.ElementAt(rnd.Next(0, Walls.Count)).Key;
+        int RoomWallIndex = rnd.Next(Walls[doorSide].Count);
+        GameObject RoomWall = Walls[doorSide][RoomWallIndex];
         AddBadDoorPositions(ref RoomWall, ref badDoorPositions);
         if (badDoorPositions.Any(i => i == (RoomWall.transform.position.x, RoomWall.transform.position.y)))
             return;
-        Walls.RemoveAt(RoomWallIndex);
+        Walls[doorSide].RemoveAt(RoomWallIndex);
         Instantiate(Door, new Vector3(RoomWall.transform.position.x, RoomWall.transform.position.y, 0), Quaternion.identity);
         Destroy(RoomWall);
     }

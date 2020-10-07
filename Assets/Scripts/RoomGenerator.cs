@@ -14,9 +14,11 @@ public class RoomGenerator : MonoBehaviour
     void Start()
     {
         GenerateRoom(-10, -10, 15, 7, 2);
+        GenerateRoom(50, -10, 15, 7, 5);
+        GenerateRoom(120, -10, 15, 7, 10);
     }
 
-    private void GenerateRoom(int startX, int startY, int sizeX, int sizeY, int doorCount)
+    private void GenerateRoom(int startX, int startY, int sizeX, int sizeY, int doorCount=0, string doorSide=null)
     {
         int topX = (sizeX * 3) + startX;
         int topY = (sizeY * 3) + startY;
@@ -56,34 +58,32 @@ public class RoomGenerator : MonoBehaviour
             {"left",   new List<(float, float)>()}
         };
         for (int i = 0; i < doorCount; i++)
-            CreateRoomDoor(ref Walls, ref badDoorPositions);
+            CreateRoomDoor(ref Walls, ref badDoorPositions, doorSide);
     }
 
-    private void CreateRoomDoor(ref Dictionary<string, List<GameObject>> Walls, ref Dictionary<string, List<(float, float)>> badDoorPositions, string doorSide=null)
+    private (float, float) CreateRoomDoor(ref Dictionary<string, List<GameObject>> Walls, ref Dictionary<string, List<(float, float)>> badDoorPositions, string doorSide=null)
     {
         if (doorSide == null)
             doorSide = Walls.ElementAt(rnd.Next(0, Walls.Count)).Key;
         int RoomWallIndex = rnd.Next(Walls[doorSide].Count);
         GameObject RoomWall = Walls[doorSide][RoomWallIndex];
-        AddBadDoorPositions(ref RoomWall, ref badDoorPositions, doorSide);
-        if (badDoorPositions[doorSide].Any(i => i == (RoomWall.transform.position.x, RoomWall.transform.position.y)))
-            return;
-        Walls[doorSide].RemoveAt(RoomWallIndex);
-        Instantiate(Door, new Vector3(RoomWall.transform.position.x, RoomWall.transform.position.y, 0), Quaternion.identity);
-        Destroy(RoomWall);
-    }
-
-    private void AddBadDoorPositions(ref GameObject RoomWall, ref Dictionary<string, List<(float, float)>> badDoorPositions, string doorSide)
-    {
+        float doorX = RoomWall.transform.position.x;
+        float doorY = RoomWall.transform.position.y;
         if (doorSide == "top" || doorSide == "bottom")
         {
-            badDoorPositions[doorSide].Add((RoomWall.transform.position.x - 3, RoomWall.transform.position.y));
-            badDoorPositions[doorSide].Add((RoomWall.transform.position.x + 3, RoomWall.transform.position.y));
+            badDoorPositions[doorSide].Add((doorX - 3, doorY));
+            badDoorPositions[doorSide].Add((doorX + 3, doorY));
         }
         else if (doorSide == "left" || doorSide == "right")
         {
-            badDoorPositions[doorSide].Add((RoomWall.transform.position.x, RoomWall.transform.position.y - 3));
-            badDoorPositions[doorSide].Add((RoomWall.transform.position.x, RoomWall.transform.position.y + 3));
+            badDoorPositions[doorSide].Add((doorX, doorY - 3));
+            badDoorPositions[doorSide].Add((doorX, doorY + 3));
         }
+        if (badDoorPositions[doorSide].Any(i => i == (doorX, doorY)))
+            return (0f, 0f);
+        Walls[doorSide].RemoveAt(RoomWallIndex);
+        Instantiate(Door, new Vector3(doorX, doorY, 0), Quaternion.identity);
+        Destroy(RoomWall);
+        return (doorX, doorY);
     }
 }

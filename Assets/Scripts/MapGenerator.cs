@@ -17,34 +17,27 @@ public class MapGenerator : MonoBehaviour
     private Dictionary<string, List<Point>> levelDoors = new Dictionary<string, List<Point>>();
     private bool[,] levelGrid = new bool[100, 100];
     private Point pathFindStart = new Point(50, 50);
+    private Point playerSpawn = new Point(50, 44);
 
     void Start()
     {
         for (int x = 0; x < levelGrid.GetLength(0); x++)
             for (int y = 0; y < levelGrid.GetLength(1); y++)
                 levelGrid[x, y] = true;
-        for (int i = 0; i < rnd.Next(20, 30); i++) // @@@ bug: spawn inside room blocks pathgen
+        levelGrid[pathFindStart.x, pathFindStart.y] = false;
+        GenerateRoom(48, 43, rnd.Next(4, 6), rnd.Next(3, 5), 1);
+        int roomsCount = rnd.Next(15, 25);
+        for (int i = 0; i < roomsCount; i++) // @@@ bug: spawn inside room blocks pathgen
         {
             int startX = rnd.Next(3, 75);
             int startY = rnd.Next(3, 75);
             int sizeX  = rnd.Next(3, 20);
             int sizeY  = rnd.Next(3, 20);
-            while (!CheckGrid(startX, startY, sizeX, sizeY))
+            if (!CheckGrid(startX, startY, sizeX, sizeY))
             {
-                if (sizeX < 3 || sizeY < 3)
-                    break;
-                if (sizeX > sizeY)
-                    sizeX--;
-                else if (sizeY > sizeX)
-                    sizeY--;
-                else
-                {
-                    sizeX--;
-                    sizeY--;
-                }
-            }
-            if (sizeX < 3 || sizeY < 3)
+                i--;
                 continue;
+            }
             GenerateRoom(startX, startY, sizeX, sizeY, rnd.Next(1, 2));
         }
         List<Point> pathFloor = new List<Point>();
@@ -67,7 +60,7 @@ public class MapGenerator : MonoBehaviour
                     doorX -= 1;
                 Point from = new Point(pathFindStart.x, pathFindStart.y);
                 Point to = new Point(doorX, doorY);
-                List<Point> path = PathFind.Pathfinding.FindPath(grid, from, to, PathFind.Pathfinding.DistanceType.Manhattan);
+                List<Point> path = PathFind.Pathfinding.FindPath(grid, from, to, PathFind.Pathfinding.DistanceType.Manhattan, true);
                 foreach (var point in path)
                 {
                     Instantiate(Floor, new Vector3(point.x, point.y, 0), Quaternion.identity);
@@ -101,7 +94,7 @@ public class MapGenerator : MonoBehaviour
             for (int y = 0; y < levelGrid.GetLength(1); y++)
                 if (levelGrid[x, y])
                     Instantiate(WallNoCollision, new Vector3(x, y, 0), Quaternion.identity);
-        Player.transform.position = new Vector3(pathFindStart.x, pathFindStart.y, 0);
+        Player.transform.position = new Vector3(playerSpawn.x, playerSpawn.y, 0);
     }
 
     private void GenerateRoom(int startX, int startY, int sizeX, int sizeY, int doorCount=0, string doorSide=null)
@@ -156,19 +149,18 @@ public class MapGenerator : MonoBehaviour
             }
             startX++;
         }
-        var badDoorPositions = new Dictionary<string, List<(float, float)>>
+        var badDoorPositions = new Dictionary<string, List<Point>>
         {
-            {"top",    new List<(float, float)>()},
-            {"right",  new List<(float, float)>()},
-            {"bottom", new List<(float, float)>()},
-            {"left",   new List<(float, float)>()}
+            {"top",    new List<Point>()},
+            {"right",  new List<Point>()},
+            {"bottom", new List<Point>()},
+            {"left",   new List<Point>()}
         };
         for (int i = 0; i < doorCount; i++)
             CreateRoomDoor(ref Walls, ref badDoorPositions, doorSide);
-        Debug.Log("Room");
     }
 
-    private void CreateRoomDoor(ref Dictionary<string, List<GameObject>> Walls, ref Dictionary<string, List<(float, float)>> badDoorPositions, string doorSide=null)
+    private void CreateRoomDoor(ref Dictionary<string, List<GameObject>> Walls, ref Dictionary<string, List<Point>> badDoorPositions, string doorSide=null)
     {
         if (doorSide == null)
         {
@@ -180,15 +172,16 @@ public class MapGenerator : MonoBehaviour
         int doorY = (int)RoomWall.transform.position.y;
         if (doorSide == "top" || doorSide == "bottom")
         {
-            badDoorPositions[doorSide].Add((doorX - 1, doorY));
-            badDoorPositions[doorSide].Add((doorX + 1, doorY));
+            badDoorPositions[doorSide].Add(new Point(doorX - 1, doorY));
+            badDoorPositions[doorSide].Add(new Point(doorX + 1, doorY));
         }
         else if (doorSide == "left" || doorSide == "right")
         {
-            badDoorPositions[doorSide].Add((doorX, doorY - 1));
-            badDoorPositions[doorSide].Add((doorX, doorY + 1));
+            badDoorPositions[doorSide].Add(new Point(doorX, doorY - 1));
+            badDoorPositions[doorSide].Add(new Point(doorX, doorY + 1));
         }
-        if (badDoorPositions[doorSide].Any(i => i == (doorX, doorY)))
+        Point doorPosition = new Point(doorX, doorY);
+        if (badDoorPositions[doorSide].Any(i => i == doorPosition))
         {
             return;
         }

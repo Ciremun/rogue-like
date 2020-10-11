@@ -25,20 +25,23 @@ public class MapGenerator : MonoBehaviour
             for (int y = 0; y < levelGrid.GetLength(1); y++)
                 levelGrid[x, y] = true;
         levelGrid[pathFindStart.x, pathFindStart.y] = false;
-        GenerateRoom(48, 43, rnd.Next(4, 6), rnd.Next(3, 5), 1);
-        int roomsCount = rnd.Next(15, 25);
-        for (int i = 0; i < roomsCount; i++) // @@@ bug: spawn inside room blocks pathgen
+        GenerateRoom(48, 43, rnd.Next(4, 7), rnd.Next(3, 6), 1);
+        int roomsCount = rnd.Next(15, 26);
+        for (int i = 0; i < roomsCount; i++)
         {
-            int startX = rnd.Next(3, 75);
-            int startY = rnd.Next(3, 75);
-            int sizeX  = rnd.Next(3, 20);
-            int sizeY  = rnd.Next(3, 20);
+            int startX = rnd.Next(3, 76);
+            int startY = rnd.Next(3, 76);
+            int sizeX  = rnd.Next(3, 21);
+            int sizeY  = rnd.Next(3, 21);
             if (!CheckGrid(startX, startY, sizeX, sizeY))
             {
                 i--;
                 continue;
             }
-            GenerateRoom(startX, startY, sizeX, sizeY, rnd.Next(1, 2));
+            int doorCount = 1;
+            if (sizeX >= 5 && sizeY >= 5)
+                doorCount = rnd.Next(1, 3);
+            GenerateRoom(startX, startY, sizeX, sizeY, doorCount);
         }
         List<Point> pathFloor = new List<Point>();
         PathFind.Grid grid = new PathFind.Grid(levelGrid);
@@ -88,7 +91,6 @@ public class MapGenerator : MonoBehaviour
                     levelGrid[pos.x, pos.y] = false;
                 }
             }
-
         }
         for (int x = 0; x < levelGrid.GetLength(0); x++)
             for (int y = 0; y < levelGrid.GetLength(1); y++)
@@ -99,8 +101,6 @@ public class MapGenerator : MonoBehaviour
 
     private void GenerateRoom(int startX, int startY, int sizeX, int sizeY, int doorCount=0, string doorSide=null)
     {
-        if (sizeX == 0 || sizeY == 0)
-            return;
         int topX = sizeX + startX;
         int topY = sizeY + startY;
         Point[] roomCorners = {

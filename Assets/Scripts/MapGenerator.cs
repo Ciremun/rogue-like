@@ -45,7 +45,7 @@ public class MapGenerator : MonoBehaviour
         }
         List<Point> pathFloor = new List<Point>();
         PathFind.Grid grid = new PathFind.Grid(levelGrid);
-        Instantiate(Floor, new Vector3(pathFindStart.x, pathFindStart.y, 0), Quaternion.identity);
+        InstTile(ref Floor, pathFindStart.x, pathFindStart.y);
         pathFloor.Add(new Point(pathFindStart.x, pathFindStart.y));
         foreach (var pair in levelDoors)
         {
@@ -66,7 +66,7 @@ public class MapGenerator : MonoBehaviour
                 List<Point> path = PathFind.Pathfinding.FindPath(grid, from, to, PathFind.Pathfinding.DistanceType.Manhattan, true);
                 foreach (var point in path)
                 {
-                    Instantiate(Floor, new Vector3(point.x, point.y, 0), Quaternion.identity);
+                    InstTile(ref Floor, point.x, point.y);
                     pathFloor.Add(new Point(point.x, point.y));
                 }
             }
@@ -87,7 +87,7 @@ public class MapGenerator : MonoBehaviour
             {
                 if (levelGrid[pos.x, pos.y])
                 {
-                    Instantiate(Wall, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
+                    InstTile(ref Wall, pos.x, pos.y);
                     levelGrid[pos.x, pos.y] = false;
                 }
             }
@@ -95,7 +95,7 @@ public class MapGenerator : MonoBehaviour
         for (int x = 0; x < levelGrid.GetLength(0); x++)
             for (int y = 0; y < levelGrid.GetLength(1); y++)
                 if (levelGrid[x, y])
-                    Instantiate(WallNoCollision, new Vector3(x, y, 0), Quaternion.identity);
+                    InstTile(ref WallNoCollision, x, y);
         Player.transform.position = new Vector3(playerSpawn.x, playerSpawn.y, 0);
     }
 
@@ -111,7 +111,7 @@ public class MapGenerator : MonoBehaviour
         };
         foreach (var point in roomCorners)
         {
-            Instantiate(Wall, new Vector3(point.x, point.y, 0), Quaternion.identity);
+            InstTile(ref Wall, point.x, point.y);
             levelGrid[point.x, point.y] = false;
         }
         var Walls = new Dictionary<string, List<GameObject>>
@@ -124,25 +124,25 @@ public class MapGenerator : MonoBehaviour
         for (int x = 0;  x < sizeX; x++)
         {
             int nextY = startY;
-            Walls["bottom"].Add(Instantiate(Wall, new Vector3(startX, nextY - 1, 0), Quaternion.identity));
+            Walls["bottom"].Add(InstTile(ref Wall, startX, nextY - 1));
             levelGrid[startX, nextY - 1] = false;
             for (int y = 0; y < sizeY; y++)
             {
                 if (x == 0)
                 {
-                    Walls["left"].Add(Instantiate(Wall, new Vector3(startX - 1, nextY, 0), Quaternion.identity));
+                    Walls["left"].Add(InstTile(ref Wall, startX - 1, nextY));
                     levelGrid[startX - 1, nextY] = false;
                 }
                 else if (x == sizeX - 1)
                 {
-                    Walls["right"].Add(Instantiate(Wall, new Vector3(startX + 1, nextY, 0), Quaternion.identity));
+                    Walls["right"].Add(InstTile(ref Wall, startX + 1, nextY));
                     levelGrid[startX + 1, nextY] = false;
                 }
-                Instantiate(Floor, new Vector3(startX, nextY, 0), Quaternion.identity);
+                InstTile(ref Floor, startX, nextY);
                 levelGrid[startX, nextY] = false;
                 if (y == sizeY - 1)
                 {
-                    Walls["top"].Add(Instantiate(Wall, new Vector3(startX, nextY + 1, 0), Quaternion.identity));
+                    Walls["top"].Add(InstTile(ref Wall, startX, nextY + 1));
                     levelGrid[startX, nextY + 1] = false;
                 } 
                 nextY++;
@@ -189,7 +189,7 @@ public class MapGenerator : MonoBehaviour
         if (!levelDoors.ContainsKey(doorSide))
             levelDoors.Add(doorSide, new List<Point>());
         levelDoors[doorSide].Add(new Point(doorX, doorY));
-        Instantiate(Door, new Vector3(doorX, doorY, 0), Quaternion.identity);
+        InstTile(ref Door, doorX, doorY);
         levelGrid[doorX, doorY] = false;
         Destroy(RoomWall);
     }
@@ -219,5 +219,10 @@ public class MapGenerator : MonoBehaviour
             startX++;
         }
         return true;
+    }
+
+    private GameObject InstTile(ref GameObject tile, int Vec3X, int Vec3Y)
+    {
+        return Instantiate(tile, new Vector3(Vec3X, Vec3Y, 0), Quaternion.identity);
     }
 }

@@ -13,6 +13,7 @@ public class MapGenerator : MonoBehaviour
     public GameObject Floor;
     public GameObject Door;
     public GameObject Player;
+    public GameObject Item;
     private System.Random rnd = new System.Random();
     private Dictionary<string, List<Point>> levelDoors = new Dictionary<string, List<Point>>();
     private bool[,] levelGrid = new bool[100, 100];
@@ -96,6 +97,7 @@ public class MapGenerator : MonoBehaviour
             for (int y = 0; y < levelGrid.GetLength(1); y++)
                 if (levelGrid[x, y])
                     InstTile(ref WallNoCollision, x, y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y + 1);
         Player.transform.position = new Vector3(playerSpawn.x, playerSpawn.y, 0);
     }
 

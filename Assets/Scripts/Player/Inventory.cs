@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<GameObject> inventory = new List<GameObject>();
+
+    public int Gold = 0;
+    public List<InventoryItem> Items;
 
     public bool PickUpItem(GameObject obj)
     {
         switch(obj.tag)
         {
-            case "Currency":
+            case Constants.TAG_CURRENCY:
                 return true;
-            case "Item":
-                inventory.Add(obj);
+            case Constants.TAG_POTION:
+                Potion Potion = obj.GetComponent<Potion>();
+                Items.Add(new InventoryItem($"{Potion.Color} Potion", Potion.Description, Potion.Actions));
                 return true;
             default:
                 return false;

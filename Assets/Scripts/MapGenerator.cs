@@ -97,7 +97,7 @@ public class MapGenerator : MonoBehaviour
             for (int y = 0; y < levelGrid.GetLength(1); y++)
                 if (levelGrid[x, y])
                     InstTile(ref WallNoCollision, x, y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y + 1);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
         Player.transform.position = new Vector3(playerSpawn.x, playerSpawn.y, 0);
     }
 

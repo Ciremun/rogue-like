@@ -6,7 +6,7 @@ public class Inventory : MonoBehaviour
 {
 
     public int Gold = 0;
-    public List<InventoryItem> Items;
+    public List<InventoryItem> Items = new List<InventoryItem>();
 
     public bool PickUpItem(GameObject obj)
     {

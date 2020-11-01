@@ -1081,6 +1081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82aff79160ce5b4c8f502daf2fb6fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsParent: {fileID: 426666640}
+  inventoryUI: {fileID: 1604878424}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3555,7 +3557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe13ba1a0f97464793731e496eb172a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gold: 0
+  space: 25
+  gold: 0
 --- !u!1001 &1979468465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3973,8 +3976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9047ff7563c68c347aee15d4fd27b96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: Purple
-  Description: Potion Item
+  icon: {fileID: 0}
+  color: Purple
+  description: Potion Item
 --- !u!1001 &5861198819038039842
 PrefabInstance:
   m_ObjectHideFlags: 0

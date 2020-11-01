@@ -5,12 +5,11 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public AudioClip soundEffect;
-    private bool colliding = false;
+    private bool destroyed = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (colliding) return;
-        colliding = true;
+        if (destroyed) return;
         Inventory Inventory = collision.GetComponent<Inventory>();
         if (Inventory && Inventory.Add(gameObject))
         {
@@ -22,5 +21,6 @@ public class Pickup : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(soundEffect, transform.position);
         Destroy(gameObject);
+        destroyed = true;
     }
 }

@@ -97,32 +97,13 @@ public class MapGenerator : MonoBehaviour
             for (int y = 0; y < levelGrid.GetLength(1); y++)
                 if (levelGrid[x, y])
                     InstTile(ref WallNoCollision, x, y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
-        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        for (int i = 0; i < 24; i++)
+            InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 2, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 3, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y + 1);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y + 2);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y + 3);
         Player.transform.position = new Vector3(playerSpawn.x, playerSpawn.y, 0);
     }
 

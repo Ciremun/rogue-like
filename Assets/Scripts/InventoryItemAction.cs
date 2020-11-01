@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class InventoryItemAction
 {
-    public string Name;
+    public string name;
 
-    public InventoryItemAction(string name)
+    public InventoryItemAction(string newName)
     {
-        Name = name;
+        name = newName;
     }
 
     public void Execute(GameObject obj)
     {
-        switch(Name)
+        switch(name)
         {
             case Constants.ACTION_DROP:
                 return;

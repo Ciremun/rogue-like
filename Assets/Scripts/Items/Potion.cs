@@ -1,14 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Potion : MonoBehaviour
 {
-    public string Color = "Purple";
-    public string Description = "Potion Item";
-    public List<InventoryItemAction> Actions = new List<InventoryItemAction>
+    public Sprite icon;
+    public string color = "Purple";
+    public string description = "Potion Item";
+    public List<InventoryItemAction> actions = new List<InventoryItemAction>
     {
         new InventoryItemAction(Constants.ACTION_DROP),
         new InventoryItemAction(Constants.ACTION_THROW)
     };
+
+    private SpriteRenderer spriteRenderer;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        icon = spriteRenderer.sprite;
+    }
 }

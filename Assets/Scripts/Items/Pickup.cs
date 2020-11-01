@@ -12,7 +12,7 @@ public class Pickup : MonoBehaviour
         if (colliding) return;
         colliding = true;
         Inventory Inventory = collision.GetComponent<Inventory>();
-        if (Inventory && Inventory.PickUpItem(gameObject))
+        if (Inventory && Inventory.Add(gameObject))
         {
             DestroyItem();
         }

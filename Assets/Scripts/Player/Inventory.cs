@@ -5,21 +5,54 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 
-    public int Gold = 0;
-    public List<InventoryItem> Items = new List<InventoryItem>();
+    public static Inventory instance;
+    public delegate void OnItemChanged();
+	public OnItemChanged onItemChangedCallback;
 
-    public bool PickUpItem(GameObject obj)
+    public int space = 25;
+    public int gold = 0;
+    public List<InventoryItem> items = new List<InventoryItem>();
+
+    void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogWarning("Inventory instance != null");
+            return;
+        }
+
+        instance = this;
+    }
+
+    public bool Add(GameObject obj)
+    {
+        if (items.Count >= space)
+        {
+            Debug.LogWarning("Inventory Full");
+            return false;
+        }
         switch(obj.tag)
         {
             case Constants.TAG_CURRENCY:
-                return true;
+                Currency currency = obj.GetComponent<Currency>();
+                gold += currency.amount;
+                break;
             case Constants.TAG_POTION:
-                Potion Potion = obj.GetComponent<Potion>();
-                Items.Add(new InventoryItem($"{Potion.Color} Potion", Potion.Description, Potion.Actions));
-                return true;
+                Potion potion = obj.GetComponent<Potion>();
+                items.Add(new InventoryItem($"{potion.color} Potion", potion.description, potion.actions, potion.icon));
+                break;
             default:
                 return false;
         }
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
+        return true;
+    }
+
+    public void Remove(InventoryItem item)
+    {
+        items.Remove(item);
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
 }

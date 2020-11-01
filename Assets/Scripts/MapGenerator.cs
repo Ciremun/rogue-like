@@ -98,6 +98,31 @@ public class MapGenerator : MonoBehaviour
                 if (levelGrid[x, y])
                     InstTile(ref WallNoCollision, x, y);
         InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
+        InstTile(ref Item, playerSpawn.x + 1, playerSpawn.y);
         Player.transform.position = new Vector3(playerSpawn.x, playerSpawn.y, 0);
     }
 

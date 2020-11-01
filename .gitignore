@@ -4,9 +4,3 @@ Logs/
 Packages/
 Temp/
 UserSettings/
-ProjectSettings/
-Assets/Animations/
-Assets/Materials/
-*.unity
-*.meta
-*.psd

@@ -135,6 +135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (17)
@@ -232,6 +236,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (9)
@@ -443,6 +451,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (23)
@@ -545,6 +557,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (15)
@@ -642,6 +658,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (24)
@@ -756,7 +776,7 @@ GameObject:
   - component: {fileID: 397153026}
   - component: {fileID: 397153025}
   m_Layer: 5
-  m_Name: Action
+  m_Name: ItemAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1015,6 +1035,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (10)
@@ -1219,6 +1243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 426666640}
   inventoryUI: {fileID: 1604878424}
+  dialog: {fileID: 1557924872}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,6 +1348,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (1)
@@ -1435,6 +1464,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (4)
@@ -1537,6 +1570,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (2)
@@ -1634,6 +1671,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (11)
@@ -1813,7 +1854,7 @@ GameObject:
   - component: {fileID: 897214663}
   - component: {fileID: 897214662}
   m_Layer: 5
-  m_Name: Desc
+  m_Name: ItemDesc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1835,8 +1876,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: 15}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 290, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897214662
 MonoBehaviour:
@@ -1907,6 +1948,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (3)
@@ -2008,6 +2053,7 @@ GameObject:
   - component: {fileID: 950069514}
   - component: {fileID: 950069516}
   - component: {fileID: 950069515}
+  - component: {fileID: 950069517}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2047,7 +2093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2057,7 +2103,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -2067,7 +2113,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: USE
 --- !u!222 &950069516
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2076,6 +2122,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950069513}
   m_CullTransparentMesh: 0
+--- !u!114 &950069517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950069513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &981836411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2083,6 +2144,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (6)
@@ -2180,6 +2245,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (20)
@@ -2282,6 +2351,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (21)
@@ -2501,7 +2574,7 @@ GameObject:
   - component: {fileID: 1182477994}
   - component: {fileID: 1182477993}
   m_Layer: 5
-  m_Name: Action
+  m_Name: ItemAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2635,6 +2708,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (22)
@@ -2743,7 +2820,7 @@ GameObject:
   - component: {fileID: 1228710401}
   - component: {fileID: 1228710400}
   m_Layer: 5
-  m_Name: Name
+  m_Name: ItemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2854,7 +2931,7 @@ GameObject:
   - component: {fileID: 1388466355}
   - component: {fileID: 1388466354}
   m_Layer: 5
-  m_Name: Action
+  m_Name: ItemAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2983,6 +3060,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (12)
@@ -3084,6 +3165,7 @@ GameObject:
   - component: {fileID: 1460383833}
   - component: {fileID: 1460383835}
   - component: {fileID: 1460383834}
+  - component: {fileID: 1460383836}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3123,7 +3205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3133,7 +3215,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -3143,7 +3225,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: DROP
 --- !u!222 &1460383835
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3152,6 +3234,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460383832}
   m_CullTransparentMesh: 0
+--- !u!114 &1460383836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460383832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1503843216
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,6 +3310,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (5)
@@ -3360,6 +3461,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 1557924872}
+  itemNameObj: {fileID: 1228710398}
+  itemDescriptionObj: {fileID: 897214660}
+  itemActions:
+  - {fileID: 1182477991}
+  - {fileID: 1388466352}
+  - {fileID: 397153023}
+  icon: {fileID: 1804922078}
 --- !u!114 &1557924875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3405,6 +3513,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (18)
@@ -3672,6 +3784,7 @@ GameObject:
   - component: {fileID: 1768570748}
   - component: {fileID: 1768570750}
   - component: {fileID: 1768570749}
+  - component: {fileID: 1768570751}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3711,7 +3824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3721,7 +3834,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -3731,7 +3844,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: THROW
 --- !u!222 &1768570750
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3740,6 +3853,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768570747}
   m_CullTransparentMesh: 0
+--- !u!114 &1768570751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768570747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1802281209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3850,7 +3978,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804922076}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3888,6 +4016,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (16)
@@ -3985,6 +4117,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (14)
@@ -4082,6 +4218,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (8)
@@ -4261,6 +4401,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (7)
@@ -4572,6 +4716,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (19)
@@ -4674,6 +4822,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot (13)
@@ -4984,7 +5136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   color: Purple
-  description: Potion Item
+  description: Potion Item, currently does nothing, testing long descriptions btw,
+    thanks for reading this pajaDank
 --- !u!1001 &5861198819038039842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4992,6 +5145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 426666640}
     m_Modifications:
+    - target: {fileID: 4313332875044389719, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1557924872}
     - target: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
       propertyPath: m_Name
       value: InventorySlot
@@ -5080,26 +5237,5 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5861198819087719130, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5861198819087719130, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5861198819087719130, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5861198819087719130, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5861198819038039843}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
---- !u!1 &5861198819038039843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5861198819087719124, guid: 6f6975d66cb64d54b92df01167c1a3a1, type: 3}
-  m_PrefabInstance: {fileID: 5861198819038039842}
-  m_PrefabAsset: {fileID: 0}

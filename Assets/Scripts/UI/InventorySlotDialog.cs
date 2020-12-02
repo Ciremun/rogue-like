@@ -11,6 +11,8 @@ public class InventorySlotDialog : MonoBehaviour
     public GameObject itemDescriptionObj;
     public List<GameObject> itemActions;
     public Image icon;
+    public InventoryItem dialogItem;
+    public InventorySlot slot;
 
     private Text itemName;
     private Text itemDescription;
@@ -30,8 +32,9 @@ public class InventorySlotDialog : MonoBehaviour
         }
     }
 
-    public void UpdateDialog(InventoryItem item)
+    public void UpdateDialog(InventorySlot invslot, InventoryItem item)
     {
+        dialogItem = item;
         itemName.text = item.name;
         itemDescription.text = item.description;
         icon.sprite = item.icon;
@@ -40,5 +43,7 @@ public class InventorySlotDialog : MonoBehaviour
         Resize.fit(ref imgwidth, ref imgheight, 30, 30);
         icon.rectTransform.sizeDelta = new Vector2(imgwidth, imgheight);
         icon.enabled = true;
+        itemActions = item.actions;
+        slot = invslot;
     }
 }

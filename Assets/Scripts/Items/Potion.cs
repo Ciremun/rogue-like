@@ -8,11 +8,7 @@ public class Potion : MonoBehaviour
     public Sprite icon;
     public string color = "Purple";
     public string description = "Potion Item";
-    public List<InventoryItemAction> actions = new List<InventoryItemAction>
-    {
-        new InventoryItemAction(Constants.ACTION_DROP),
-        new InventoryItemAction(Constants.ACTION_THROW)
-    };
+    public List<GameObject> actions;
 
     private SpriteRenderer spriteRenderer;
 

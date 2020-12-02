@@ -25,7 +25,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (item == null) return;
         InventorySlotDialog dialogObject = dialog.GetComponent<InventorySlotDialog>(); 
-        dialogObject.UpdateDialog(item);
+        dialogObject.UpdateDialog(this, item);
         dialog.SetActive(true);
     }
 }

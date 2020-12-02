@@ -8,10 +8,12 @@ public class InventoryItem
     public Sprite icon;
     public string name;
     public string description;
-    public List<InventoryItemAction> actions;
+    public List<GameObject> actions;
+    public GameObject itemObj;
 
-    public InventoryItem(string newName, string newDesc, List<InventoryItemAction> newActions, Sprite newIcon)
+    public InventoryItem(GameObject obj, string newName, string newDesc, List<GameObject> newActions, Sprite newIcon)
     {
+        itemObj = obj;
         name = newName;
         description = newDesc;
         actions = newActions;

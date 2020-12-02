@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour
             Debug.LogWarning("Inventory Full");
             return false;
         }
+        GameObject objClone = Instantiate(obj, new Vector3(-1000, -1000, 0), Quaternion.identity);
         switch(obj.tag)
         {
             case Constants.TAG_CURRENCY:
@@ -39,7 +40,7 @@ public class Inventory : MonoBehaviour
                 break;
             case Constants.TAG_POTION:
                 Potion potion = obj.GetComponent<Potion>();
-                items.Add(new InventoryItem($"{potion.color} Potion", potion.description, potion.actions, potion.icon));
+                items.Add(new InventoryItem(objClone, $"{potion.color} Potion", potion.description, potion.actions, potion.icon));
                 break;
             default:
                 return false;

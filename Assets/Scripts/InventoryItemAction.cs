@@ -11,16 +11,17 @@ public class InventoryItemAction : MonoBehaviour
         actionName = newName;
     }
 
-    public void Execute(GameObject dialog)
+    public void Execute(GameObject dialogObj)
     {
-        InventorySlotDialog dialogObject = dialog.GetComponent<InventorySlotDialog>();
+        InventorySlotDialog dialog= dialogObj.GetComponent<InventorySlotDialog>();
         GameObject player = GameObject.FindWithTag("Player");
         switch(actionName)
         {
             case Constants.ACTION_DROP:
-                Instantiate(dialogObject.dialogItem.itemObj, new Vector3(player.transform.position.x + 1, player.transform.position.y, 0), Quaternion.identity);
+                InventoryItem item = dialog.slot.item;
                 Inventory playerInventory = player.GetComponent<Inventory>();
-                playerInventory.Remove(dialogObject.dialogItem);
+                Instantiate(item.itemObj, new Vector3(player.transform.position.x + 1, player.transform.position.y, 0), Quaternion.identity);
+                playerInventory.Remove(item);
                 return;
             case Constants.ACTION_THROW:
                 return;

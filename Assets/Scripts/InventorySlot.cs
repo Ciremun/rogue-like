@@ -5,7 +5,7 @@ public class InventorySlot : MonoBehaviour
 {
     public GameObject dialog;
     public Image icon;
-    InventoryItem item;
+    public InventoryItem item;
 
     public void AddItem(InventoryItem newItem)
     {
@@ -25,7 +25,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (item == null) return;
         InventorySlotDialog dialogObject = dialog.GetComponent<InventorySlotDialog>(); 
-        dialogObject.UpdateDialog(this, item);
+        dialogObject.UpdateDialog(this);
         dialog.SetActive(true);
     }
 }
